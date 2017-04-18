@@ -1,0 +1,64 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'appuser/style.css' %}" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+
+     <div style="color: #fff;
+    background: #0e90d2;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px 0;">
+        <span style="color:white;font-size:1em;"><h1>{% trans "All Teams" %}</h1></span>
+    </div>
+    <ul class="list-group"style=" padding-left:0px;
+    margin-left: 0px;">
+        {% for team in teamsjson.0 %}
+        <li class="list-group-item"style="padding:0px;">
+            <a href='team/{{ team.team_id}}' class="list-group-item"style="margin:0px;padding:0px;border:none;">
+                <div class="media" style="padding:2%;border: none;!important">
+                    <div class="media-left">
+                      <div style=" height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;text-align:center;vertical-align:middle;font-size:100%;background-color:#738ffe;line-height: 50px;color:white;font-weight:bolder;">{{team.team_name.0}}</div>
+                    </div>
+
+                    <div class="media-body">
+
+                        <h2 class="media-heading"><b>{{team.team_name}}</b></h4>
+
+                        <p> {{team.team_description}}</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+
+    </ul>
+
+    <div class="footer ">
+        <div class="footer-contents container h-list">
+            <a class="h-list-item" href="#">
+                <i class="glyphicon glyphicon-flag fa fa-user"></i>
+                <p>{% trans "Execute" %}</p>
+            </a>
+            <a class="h-list-item" href="#">
+                <i class="glyphicon glyphicon-user fa fa-user"></i>
+                <p>{% trans "Profile" %}</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
